@@ -1,0 +1,48 @@
+<section id="main-section">
+  <div id="card-container" class="ui ribbon">
+  <!--<mat-card id="contacts-card" *ngFor="let post of posts" [ngStyle]="{'background': 'url(' + post.image + ') no-repeat'}">-->
+    <mat-card id="posts-card" *ngFor="let post of posts|slice:0:show" >
+      <mat-card-header id="post-header">
+        <div mat-card-avatar  [ngStyle]="{'background': 'url(' + post.avatar + ') no-repeat'}" [ngClass]="post.avatar === undefined ? 'no-avatar' : ''"></div>
+        <mat-card-title id="post-author" (click)="navigateToUser(post.userId)">{{post.author}}</mat-card-title>
+        <mat-card-subtitle>{{date | date: 'shortDate'}}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <h1 (click)="navigateToPost(post.id)">{{post.title}}</h1>
+        <p id="post-text">{{post.text}}</p>
+        <a id="read-more" mat-button (click)="navigateToPost(post.id)">Читать далшье</a>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <button mat-button id="show-more" (click)="show = show + 10" *ngIf="show<= posts.length">Показать еще</button>
+<!--<app-navigation></app-navigation>-->
+  <!--<pagination-controls class="page-pagination"-->
+    <!--(pageChange)="p=$event">-->
+    <!--autoHide="true"-->
+    <!--previousLabel="Предыдущая страница"-->
+    <!--nextLabel="Следующая страница"-->
+  <!--</pagination-controls>-->
+  <!--<mat-paginator [length]="100"-->
+                 <!--[pageSize]="10"-->
+                 <!--[pageSizeOptions]="[5, 10, 25, 100]">-->
+<!--</mat-paginator>-->
+</section>
+
+<!--<div class="row justify-content-md-center">-->
+  <!--<div class="col-sm col-md col-lg-8">-->
+    <!--<mat-card class="card" *ngFor="let post of posts">-->
+      <!--<mat-card-header id="post-header">-->
+        <!--<div mat-card-avatar (click)='clicked($event)' [ngStyle]="{'background': 'url(' + post.avatar + ') no-repeat'}"></div>-->
+        <!--&lt;!&ndash;<img [src]=post.avatar alt="">&ndash;&gt;-->
+        <!--<mat-card-title><a href="">{{post.author}}</a></mat-card-title>-->
+        <!--<mat-card-subtitle>{{date | date: 'shortDate'}}</mat-card-subtitle>-->
+      <!--</mat-card-header>-->
+      <!--<div class="card-block">-->
+        <!--<h1>{{post.title}}</h1>-->
+        <!--<p>{{post.text}}</p>-->
+        <!--<a id="read-more" href="" mat-button>Читать далшье</a>-->
+      <!--</div>-->
+    <!--</mat-card>-->
+  <!--</div>-->
+  <!--<app-navigation></app-navigation>-->
+<!--</div>-->

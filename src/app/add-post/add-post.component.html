@@ -1,0 +1,20 @@
+<div class="container" id="add-comment-container">
+  <h4 class="text-muted text-center">Пост, претендующий на звание лучший</h4>
+  <form #userForm="ngForm" (ngSubmit)="AddPost(userForm.value)" class="container" id="userCommentForm">
+    <div class="form-group">
+      <label for="userName">Имя Пользователя</label>
+      <input type="text" class="form-control" id="userName" aria-describedby="emailHelp" placeholder="Имя пользователя" name="userName" [ngModel]="emptyUsername">
+      <small id="emailHelp" class="form-text text-muted">Имя пользователя может содержать только киррилицу, латинские буквы или цифры</small>
+    </div>
+    <div class="form-group">
+      <label for="postTitle">Тема поста</label>
+      <input type="text" class="form-control" id="postTitle" aria-describedby="emailHelp" placeholder="Имя пользователя" name="postTitle" [ngModel]="emptyCommentTitle">
+    </div>
+    <div class="form-group">
+      <label for="userText">Текст поста</label>
+      <textarea class="form-control" rows="10" id="userText" placeholder="Введите ваши умные изречения" name="userText" [ngModel]="emptyUserComment"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary" id="add-comment">Запостить свои мудрые мысли</button>
+  </form>
+</div>
+

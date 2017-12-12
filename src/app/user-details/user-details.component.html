@@ -1,0 +1,16 @@
+  <section id="main-section">
+    <div id="card-container">
+      <mat-card-header id="post-header" *ngIf="usersPosts && usersPosts.length">
+        <div mat-card-avatar [ngStyle]="{'background': 'url(' + usersPosts[0].avatar + ') no-repeat'}" [ngClass]="usersPosts[0].avatar === undefined ? 'no-avatar' : ''"></div>
+        <mat-card-title>{{usersPosts[0].author}}</mat-card-title>
+      </mat-card-header>
+      <mat-card id="posts-card" *ngFor="let userpost of usersPosts" >
+        <mat-card-content>
+          <h1 (click)="navigateToPost(userpost.id)">{{userpost.title}}</h1>
+          <p id="post-text">{{userpost.text}}</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </section>
+
+

@@ -1,0 +1,31 @@
+<section id="main-section">
+  <div id="card-container">
+    <h3 id="comments-count">Количество комментариев: {{comments.length}}</h3>
+    <ul *ngFor="let comment of comments">
+      <div id="comments-header">
+        <div mat-card-avatar class="ui ribbon label" [ngStyle]="{'background': 'url(' + comment.avatar + ') no-repeat'}" [ngClass]="comment.avatar === undefined ? 'no-avatar' : ''"></div>
+        <span id="post-author">{{comment.author}}</span>
+      </div>
+      <li id="comment-text">{{comment.body}}</li>
+    </ul>
+  </div>
+  <h4 class="text-muted text-center">Оставить комментарий</h4>
+  <form #userForm="ngForm" (ngSubmit)="PostComment(userForm.value)" class="container" id="userCommentForm">
+    <div class="form-group">
+      <label for="userName">Имя Пользователя</label>
+      <input type="text" class="form-control" id="userName" aria-describedby="emailHelp" placeholder="Имя пользователя" name="userName" [ngModel]="emptyUsername">
+      <small id="emailHelp" class="form-text text-muted">Имя пользователя может содержать только киррилицу, латинские буквы или цифры</small>
+    </div>
+    <div class="form-group">
+      <label for="userComment">Комментарий</label>
+      <textarea class="form-control" rows="3" id="userComment" placeholder="Введите ваш комментарий" name="userComment" [ngModel]="emptyUserComment"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary" id="add-comment">Оставить комменатрий</button>
+  </form>
+</section>
+<!--<div class="container" id="add-comment-container">-->
+  <!--<mat-form-field>-->
+    <!--<input matInput placeholder="Input">-->
+  <!--</mat-form-field>-->
+<!--</div>-->
+
